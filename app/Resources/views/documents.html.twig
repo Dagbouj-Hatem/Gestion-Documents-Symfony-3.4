@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
+    <!-- Twitter meta-->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:site" content="@pratikborsadiya">
+    <meta property="twitter:creator" content="@pratikborsadiya">
+    <!-- Open Graph Meta-->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Vali Admin">
+    <meta property="og:title" content="Vali - Free Bootstrap 4 admin theme">
+    <meta property="og:url" content="http://pratikborsadiya.in/blog/vali-admin">
+    <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
+    <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
+    <title>Bienvenue</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/css/main.css') }}">
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/icon" href="https://comps.canstockphoto.fr/plat-icon-gestion-donn%C3%A9es-design-clipart-vecteur_csp31903151.jpg">
+  </head>
+  <body class="app sidebar-mini rtl">
+<!-- Navbar-->
+    <header class="app-header"><a class="app-header__logo" href="/dashboard">Adhérent</a>
+      <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
+      <!-- Navbar Right Menu-->
+      <ul class="app-nav"> 
+        <!-- User Menu-->
+        <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
+          <ul class="dropdown-menu settings-menu dropdown-menu-right">
+            <li><a class="dropdown-item" href="/dashboard/settings"><i class="fa fa-cog fa-lg"></i> Paramétres</a></li> 
+            <li><a class="dropdown-item" href="/logout"><i class="fa fa-sign-out fa-lg"></i>Déconnexion</a></li>
+          </ul>
+        </li>
+      </ul>
+    </header>
+    <!-- Sidebar menu-->
+    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+    <aside class="app-sidebar">
+      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="User Image">
+        <div>
+          <p class="app-sidebar__user-name">{{ user.nom  }}{{' ' ~ user.prenom }}</p>
+          <p class="app-sidebar__user-designation">{{ user.email }} </p>
+        </div>
+      </div>
+      <ul class="app-menu">
+        <li><a class="app-menu__item" href="/dashboard"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Tableau de bord</span></a></li> 
+        <li class="treeview is-expanded "><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Documents</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="/dashboard/documents/add"><i class="icon fa fa-plus-square"></i>Ajouter un document</a></li>
+            <li><a class="treeview-item active" href="/dashboard/documents/list"><i class="icon fa fa-list-ul"></i>Liste des documents</a></li>
+          </ul>
+        </li> 
+        <li><a class="app-menu__item" href="/dashboard/settings"><i class="app-menu__icon fa fa-cog"></i><span class="app-menu__label">Paramétres</span></a></li> 
+      </ul>
+    </aside>
+    <main class="app-content">
+      <div class="app-title">
+        <div>
+          <h1><i class="fa fa-th-list"></i> Documents</h1>
+          <p>Chercher dans la liste des documents</p>
+        </div>
+        <ul class="app-breadcrumb breadcrumb side">
+          <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+          <li class="breadcrumb-item">Documents</li>
+          <li class="breadcrumb-item active"><a href="#">Liste des documents</a></li>
+        </ul>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="tile">
+            <div class="tile-body">
+              <table class="table table-hover table-bordered" id="sampleTable">
+                <thead class="bg-primary text-white text-center">
+                  <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Tye</th>
+                    <th>Télécharger</th> 
+                    <th>Modifier</th> 
+                    <th>Supprimer</th> 
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for doc in documents %}        
+                    <tr>   
+                        <td>{{ doc.id }}</td>
+                        <td>{{ doc.nom }}</td>
+                        <td>{{ doc.type }}</td> 
+                        <td class="text-center"><a href="{{ asset('/dashboard/document/' ~ doc.url) }}" class="btn btn-link">Télécharger</a></td>    
+                        <td class="text-center"><a href="/dashboard/document/update/{{doc.id}}" class="btn btn-info">Modifier</a></td>    
+                        <td class="text-center"><a href="/dashboard/document/delete/{{doc.id}}" class="btn btn-danger">Supprimer</a></td>    
+                    </tr> 
+                {% endfor %} 
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Essential javascripts for application to work-->
+    <script src="{{ asset('public/js/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ asset('public/js/popper.min.js') }}"></script>
+    <script src="{{ asset('public/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('public/js/main.js') }}"></script>
+    <!-- The javascript plugin to display page loading on top-->
+    <script src="{{ asset('public/js/plugins/pace.min.js') }}"></script>
+    <!-- Page specific javascripts-->
+    <!-- Data table plugin-->
+    <script type="text/javascript" src="{{ asset('public/js/plugins/jquery.dataTables.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('public/js/plugins/dataTables.bootstrap.min.js') }}"></script>
+    <script type="text/javascript">$('#sampleTable').DataTable();</script>
+    <!-- Google analytics script-->
+    <script type="text/javascript">
+      if(document.location.hostname == 'pratikborsadiya.in') {
+      	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      	ga('create', 'UA-72504830-1', 'auto');
+      	ga('send', 'pageview');
+      }
+    </script>
+  </body>
+</html>

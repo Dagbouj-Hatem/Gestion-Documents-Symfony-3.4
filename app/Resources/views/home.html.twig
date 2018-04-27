@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- datatable-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.css"/>
+    <link rel="icon" type="image/icon" href="https://comps.canstockphoto.fr/plat-icon-gestion-donn%C3%A9es-design-clipart-vecteur_csp31903151.jpg">
+    <title>Bienvenue</title>
+  </head>
+  <body>
+    <style type="text/css">
+      body{
+        background-color: #dcdde1;
+      }
+      thead , .navbar-light , .navbar{
+        background-color: #273c75;
+      }
+    </style>
+<nav class="navbar navbar-light  justify-content-between">
+  <a class="navbar-brand text-white" href="/">Gestion des documents</a>
+  <form class="form-inline"> 
+    <a class="btn btn-secondary my-2 my-sm-0" type="submit" href="/register">Inscription</a>
+    <a class="btn btn-secondary ml-3 my-2 my-sm-0" type="submit" href="/login">Login</a>
+  </form>
+</nav>
+    <div class="container-fluid">
+      <div class="row mt-5">
+      <div class="offset-1 col-md-10">
+          <table class="table table-hover" id="myTable">
+          <thead class="text-white">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Nom</th>
+              <th scope="col">Type</th>
+              <th scope="col">Télécharger</th> 
+            </tr>
+          </thead>
+          <tbody>
+                {% for doc in documents %}        
+                    <tr>   
+                        <td>{{ doc.id }}</td>
+                        <td>{{ doc.nom }}</td>
+                        <td>{{ doc.type }}</td> 
+                        <td class="text-center"><a href="{{ asset('/dashboard/document/' ~ doc.url) }}" class="btn btn-link">Télécharger</a></td>     
+                    </tr> 
+                {% endfor %}  
+          </tbody>
+        </table>
+    </div>
+  </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.16/datatables.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready( function () {
+          $('#myTable').DataTable();
+      } );
+    </script>
+  </body>
+</html>

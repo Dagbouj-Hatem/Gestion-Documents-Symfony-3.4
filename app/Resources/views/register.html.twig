@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/css/main.css') }}">
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Bienvenue</title> 
+    <link rel="icon" type="image/icon" href="https://comps.canstockphoto.fr/plat-icon-gestion-donn%C3%A9es-design-clipart-vecteur_csp31903151.jpg">
+  </head>
+  <body class="container">
+    <section class="material-half-bg">
+      <div class="cover"></div>
+    </section>
+    <section class="login-content">
+      <div class="logo">
+        <h1>Gestion Des Documents</h1>
+      </div>
+
+      <div class="login-box" style="width: 600px; "> 
+          {{ form_start(form, { 'attr': {'class': 'login-form'} }) }}
+          <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user-plus"></i>Inscription</h3>
+          <div class="row">
+              <div class="col-lg-6">
+                  <div class="form-group">  
+                    {{ form_widget(form.nom, { 'attr': {'class': 'form-control' , 'placeholder':'Votre Nom'} }) }}
+                  </div>
+                  <div class="form-group"> 
+                    {{ form_widget(form.prenom, { 'attr': {'class': 'form-control' , 'placeholder':'Votre Prénom'} }) }}
+                  </div>
+                  <div class="form-group"> 
+                    {{ form_widget(form.password.first, { 'attr': {'class': 'form-control' , 'placeholder':'Votre mot de passe'} }) }}
+                  </div>
+                   <div class="form-group">  
+                    {{ form_widget(form.password.second, { 'attr': {'class': 'form-control' , 'placeholder':'Confirmer votre mot de passe'} }) }}
+                  </div>
+              </div>
+              <div class="col-lg-6"> 
+                <div class="form-group"> 
+                  {{ form_widget(form.email, { 'attr': {'class': 'form-control' , 'placeholder':'Votre E-mail'} }) }}
+                </div>
+                <div class="form-group"> 
+                  {{ form_widget(form.tele, { 'attr': {'class': 'form-control' , 'placeholder':'Votre Numéro de téléphone'} }) }}
+                </div>
+                <div class="form-group"> 
+                  {{ form_widget(form.adresse, { 'attr': {'class': 'form-control' , 'placeholder':'Votre adresse'} }) }}
+                </div>
+                 <div class="form-group">  
+                   {{ form_widget(form.codepostal, { 'attr': {'class': 'form-control' , 'placeholder':'Code postal'} }) }}
+                </div>
+              </div>
+          </div>
+
+          <div class="form-group">
+            <div class="utility">
+              <div class="form-group btn-container">
+                <button class="btn btn-primary btn-block  mb-12"><i class="fa fa-sign-in fa-lg fa-fw"></i>Inscription</button>
+              </div>
+              <div class="animated-checkbox">
+                <label> 
+                  <p class="semibold-text mb-2"><a href="/login" data-toggle="flip">Login</a>
+                </label>
+              </div>
+             <p class="semibold-text mb-2"><a href="/reset" data-toggle="flip">Mot de passe oublier?</a>
+            </div>
+          </div> 
+        {{ form_end(form) }} 
+      </div>
+    </section>
+    <!-- Essential javascripts for application to work-->
+    <script src="{{ asset('public/js/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ asset('public/js/popper.min.js') }}"></script>
+    <script src="{{ asset('public/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('public/js/main.js') }}"></script>
+    <!-- The javascript plugin to display page loading on top-->
+    <script src="{{ asset('public/js/plugins/pace.min.js') }}"></script>
+     
+  </body>
+</html>
