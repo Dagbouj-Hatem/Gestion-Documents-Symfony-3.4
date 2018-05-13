@@ -46,7 +46,7 @@
                         <td>{{ doc.id }}</td>
                         <td>{{ doc.nom }}</td>
                         <td>{{ doc.type }}</td> 
-                        <td class="text-center"><a href="{{ asset('/dashboard/document/' ~ doc.url) }}" class="btn btn-link">Télécharger</a></td>     
+                        <td class="text-center"><a href="{{ asset('/document/' ~ doc.url) }}" class="btn btn-link">Télécharger</a></td>     
                     </tr> 
                 {% endfor %}  
           </tbody>

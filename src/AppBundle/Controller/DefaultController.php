@@ -154,7 +154,7 @@ class DefaultController extends Controller
        return $this->render('add_doc.html.twig', array('user'=> $user,'form' => $form->createView(),));
     }
     /**
-     * @Route("/dashboard/document/{name}", name="get_document")
+     * @Route("/document/{name}", name="get_document")
      *      to download a file by name
      */
     public function docummentbyurl($name)
