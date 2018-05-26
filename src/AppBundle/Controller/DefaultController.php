@@ -166,7 +166,7 @@ class DefaultController extends Controller
      * @Route("/dashboard/document/delete/{id}", name="delete_document")
      *      to delete a file by id
      */
-    public function deletedocummentbyid($id)
+    public function deletedocummentbyid(Request $request,$id)
     { 
         //1.0 find document by  id 
         $entityManager = $this->getDoctrine()->getManager();

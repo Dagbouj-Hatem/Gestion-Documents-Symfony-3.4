@@ -93,7 +93,7 @@
                         <td>{{ doc.type }}</td> 
                         <td class="text-center"><a href="{{ asset('/document/' ~ doc.url) }}" class="btn btn-link">Télécharger</a></td>    
                         <td class="text-center"><a href="/dashboard/document/update/{{doc.id}}" class="btn btn-info">Modifier</a></td>    
-                        <td class="text-center"><a href="/document/delete/{{doc.id}}" class="btn btn-danger">Supprimer</a></td>    
+                        <td class="text-center"><a href="/dashboard/document/delete/{{doc.id}}" class="btn btn-danger">Supprimer</a></td>    
                     </tr> 
                 {% endfor %} 
                 </tbody>
