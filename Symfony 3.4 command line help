@@ -1,0 +1,36 @@
+/*
+*	Data Base Symfony 3.4 
+*/ 
+1.0 create database 
+ $php bin/console doctrine:database:drop --force
+ $php bin/console doctrine:database:create
+
+2.0 create Entity
+$php bin/console doctrine:generate:entity
+		i.e AppBundle:User
+
+3.0 Generate getters & setters 
+$php bin/console doctrine:generate:entities AppBundle
+
+4.0 After creating your entities you should validate the mappings with the following command:
+$ php bin/console doctrine:schema:validate
+
+5.0 Creating the Database Tables/Schema
+$ php bin/console doctrine:schema:update --force
+
+
+
+
+/* 
+* 	Controller 
+*/
+
+1.0 generate a controller
+$php bin/console generate:controller
+
+/*
+*	Form
+*
+*/
+1.0 create form 
+$php bin/console generate:doctrine:form AcmeBlogBundle:Post
